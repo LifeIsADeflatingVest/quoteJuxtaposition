@@ -32,6 +32,7 @@ a:active {
 	width:70%;
 	margin:auto;
 	padding:10px;
+	display:none;
 }
 .container {
 	position: relative;
@@ -72,5 +73,8 @@ a:active {
 @media only screen and (max-width: 600px) {
     body {
 		font-size:0.85em;
+	}
+	.text-block {
+		font-size: 1.1em;
 	}
 }

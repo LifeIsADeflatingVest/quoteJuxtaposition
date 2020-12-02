@@ -5,8 +5,7 @@ function boot() {
 	var quoteText = theQuote.text;
 	var keyword = findNouns(quoteText);
 	console.log(keyword);
-	getImages();
-	
+	getImages();	
 	function getImages () {
 		$.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
 		{
@@ -32,6 +31,10 @@ function boot() {
 				getImages();
 			}
 		});
+		setTimeout(
+			function() {
+				$(".output").fadeIn(2000);
+		}, 1000);
 	}
 	
 	function landscapeCheck(width, height) {
