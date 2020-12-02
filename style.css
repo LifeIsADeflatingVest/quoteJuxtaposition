@@ -1,0 +1,76 @@
+body {
+	background-color:black;
+	color:cornsilk;
+	font-family:Verdana;
+	margin:10px;
+	padding:10px;
+}
+h1 {
+	font-size:1.35em;
+}
+h2 {
+	font-size:1.2em;
+	margin-top:2.5em;
+}
+p {
+	font-size:1em;
+	margin-top: 10px;
+}
+a:link {
+  color: red;
+}
+a:visited {
+  color: cyan;
+}
+a:hover {
+  color: hotpink;
+}
+a:active {
+  color: blue;
+}
+.output {
+	width:70%;
+	margin:auto;
+	padding:10px;
+}
+.container {
+	position: relative;
+	width:100%;
+}
+.text-block {
+	position: absolute;
+	font-family: texturina;
+	font-size:2.2em;
+	bottom: 4em;
+	left: 2em;
+	background-color: rgba(0,0,0,0.2);
+	color: cornsilk;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.button2 {
+	font-family:Verdana;
+	font-size:1.1em;
+	margin-top:10px;
+	padding:15px;
+	border-radius:7px;
+	background:steelblue;
+	color:blanchedalmond;
+}
+.button2:hover {
+	animation: btn_hover 0.6s;
+	animation-fill-mode: forwards;
+}
+@keyframes btn_hover{
+	0% {
+		box-shadow: 0px 0px 0px 0px cornsilk;
+	}
+	100% {
+		box-shadow: 10px 10px 30px 0px cornsilk;
+	}
+}
+@media only screen and (max-width: 600px) {
+    body {
+		font-size:0.85em;
+	}
+}
