@@ -25,7 +25,9 @@
 	</div>
 	<script>
 	function booting() {
-		$("#intro").fadeOut(500);
+		var introHeight = document.getElementById("intro").offsetHeight;
+		$("#intro").animate({height: -introHeight}, 1000);
+		$("#intro").fadeOut(0);
 		$(".output").fadeOut(500);
 		setTimeout(
 			function() {

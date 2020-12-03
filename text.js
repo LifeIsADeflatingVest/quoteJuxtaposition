@@ -4,7 +4,6 @@ function boot() {
 	var quoteAuthor = theQuote.author;
 	var quoteText = theQuote.text;
 	var keyword = findNouns(quoteText);
-	console.log(keyword);
 	getImages();	
 	function getImages () {
 		$.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
@@ -50,7 +49,7 @@ function boot() {
 		var s = qt.split(" ");
 		var array = [];
 		for (i=0;i<s.length;i++) {
-			if (RiTa.isNoun(s[i]) && !RiTa.isW_Question(s[i]) && !RiTa.isVerb(s[i]) && !RiTa.isAdjective(s[i]) &&!RiTa.isAdverb(s[i])) {
+			if (RiTa.isNoun(s[i]) && !RiTa.isW_Question(s[i]) && !RiTa.isAdjective(s[i]) &&!RiTa.isAdverb(s[i])) {
 				array.push(s[i]);
 			}
 		}
