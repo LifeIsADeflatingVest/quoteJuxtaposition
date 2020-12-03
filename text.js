@@ -2,8 +2,17 @@ function boot() {
 	var theQuote= RiTa.randomItem(quotations);
 	var theFont= RiTa.randomItem(fontFamilies);
 	var quoteAuthor = theQuote.author;
-	var quoteText = theQuote.text;
+	var quoteText;
+	if (shuf) {
+		quoteText = markovOutput();
+	}
+	else {
+		quoteText = theQuote.text;
+	}
 	var keyword = findNouns(quoteText);
+	if (inco) {
+		
+	}
 	var r = randomColor();
 	var g = randomColor();
 	var b = randomColor();
@@ -67,5 +76,11 @@ function boot() {
 	
 	function randomColor() {
 		 return Math.floor(Math.random() * Math.floor(255));
+	}
+	
+	function markovOutput() {
+		var rm = new RiMarkov(4);
+		rm.loadText(allTheQuotes);
+		return rm.generateSentence();
 	}
 }
