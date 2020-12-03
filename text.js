@@ -4,6 +4,10 @@ function boot() {
 	var quoteAuthor = theQuote.author;
 	var quoteText = theQuote.text;
 	var keyword = findNouns(quoteText);
+	var r = randomColor();
+	var g = randomColor();
+	var b = randomColor();
+	$(".text-block").css("background-color","rgba("+r+","+g+","+b+",0.3");
 	getImages();	
 	function getImages () {
 		$.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
@@ -59,5 +63,9 @@ function boot() {
 		else {
 			return "cat";
 		}
+	}
+	
+	function randomColor() {
+		 return Math.floor(Math.random() * Math.floor(255));
 	}
 }
