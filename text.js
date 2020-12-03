@@ -1,17 +1,22 @@
 function boot() {
 	var theQuote= RiTa.randomItem(quotations);
 	var theFont= RiTa.randomItem(fontFamilies);
-	var quoteAuthor = theQuote.author;
+	var quoteAuthor;
 	var quoteText;
 	if (shuf) {
 		quoteText = markovOutput();
+		quoteAuthor = (theQuote.author + " (not)");
 	}
 	else {
 		quoteText = theQuote.text;
+		quoteAuthor = theQuote.author;
 	}
 	var keyword = findNouns(quoteText);
 	if (inco) {
-		
+		var keywordArray = 	dataMUSE('https://api.datamuse.com/words?rel_ant='+keyword);
+		if (keywordArray.length!=0) {
+			keyword = RiTa.randomItem(keywordArray);
+		}
 	}
 	var r = randomColor();
 	var g = randomColor();
@@ -79,8 +84,33 @@ function boot() {
 	}
 	
 	function markovOutput() {
-		var rm = new RiMarkov(4);
+		var rm = new RiMarkov(3);
 		rm.loadText(allTheQuotes);
 		return rm.generateSentence();
+	}
+	
+	function dataMUSE (myURL) {
+		var json = (function () {
+			var json = null;
+			$.ajax({
+				'async': false,
+				'global': false,
+				'url': myURL,
+				'dataType': "json",
+				'success': function (data) {
+					json = data;
+				}
+			});
+			return json;
+		})();		
+		var amb = JSON.stringify(json);
+		amb = amb.replace(/[.,\/#!?'"$%\^&\*;:{}\[\]=\-_`~()]/g,"");
+		amb = amb.replace(/word/g , " ");
+		amb = amb.replace(/score/g, " ");
+		amb = amb.replace(/[0-9]/g, " "); 
+		amb = amb.replace(/numSyllables/g, " "); 
+		amb = amb.replace(/\s+/g,' ').trim();
+		amb = amb.split(" ");
+		return amb;
 	}
 }
