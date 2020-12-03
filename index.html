@@ -10,6 +10,10 @@
 	<script src="text.js"></script>
 </head>
 <body>
+	<div id="menu">
+		<button class="button1" id="shuff" onClick="shuffler();" >Shuffler: Off</button>
+		<button class="button1" id="incon" onClick="incongruousness();" >Incongruousness: Off</button>
+	</div>
 	<div id="heading">
 		<h1>Juxtaposed Quotes</h1>
 	</div>
@@ -28,6 +32,32 @@
 		</div>
 	</div>
 	<script>
+	var shuf = false;
+	var inco = false;
+	function shuffler() {
+		if (shuf) {
+			$("#shuff").css("background-color","red");
+			shuf = false;
+			$("#shuff").text("Shuffler: Off");
+		}
+		else {
+			$("#shuff").css("background-color","green");
+			$("#shuff").text("Shuffler: On");
+			shuf = true;
+		}
+	}
+	function incongruousness() {
+		if (inco) {
+			$("#incon").css("background-color","red");
+			$("#incon").text("Incongruousness: Off");
+			inco = false;
+		}
+		else {
+			$("#incon").css("background-color","green");
+			$("#incon").text("Incongruousness: On");
+			inco = true;
+		}
+	}
 	function booting() {
 		var introHeight = document.getElementById("intro").offsetHeight;
 		$("#intro-cont").animate({height: -introHeight}, 1000);
