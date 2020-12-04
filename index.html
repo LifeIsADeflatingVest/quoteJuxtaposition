@@ -20,9 +20,10 @@
 	</div>
 	<div id="intro-cont">
 		<div id="intro">
-		<p>Do you hate those "motivational" quote images, with butterflies and dramatic skies and believe-in-yourself-you-can-do-its? Me too… That's why I thought to make this little program.</p><p>The code selects a famous quotation from a list and pairs it with a photo. The process is randomized, which makes it quite crazy in terms of what kind of image might pop up.</p><p>This also means, it's beyond my control, as it searches Flickr for public photos using keywords that <em>should</em> be relevant to the quotation content. But this depends entirely on users uploading the correct tag, which means I assume no responsibility regarding what kind of images will emerge, so <strong>be warned</strong>!</p>
-		<h3>How to Use:</h3>
-		<p>Each time you press "Let's Go", the code runs to load a new random image with a new random quote.</p><p>If "Shuffler" is set to on, the code will <strong>combine</strong> pieces of different quotations, to create a new quote. The "author" name is also picked randomly.</p><p>If "Incongruousness" is set to on, the code will attempt to pick an image that is <strong>the opposite</strong> of the keyword detected.</p>
+			<p>Do you hate those "motivational" quote images, with butterflies and dramatic skies and believe-in-yourself-you-can-do-its? Me too… That's why I thought to make this little program.</p><p>The code selects a famous quotation from a list and pairs it with a photo. The process is randomized, which makes it quite crazy in terms of what kind of image might pop up.</p><p><span style="color:red">Disclaimer: </span>This also means, it's <strong>beyond my control</strong>, as it searches Flickr for public photos using keywords that <em>should</em> be relevant to the quotation content, yet depends entirely on Flickr users uploading the correct tag and correctly marking the photo as suitable (or not) for general/public viewing. I assume no responsibility regarding what kind of images will emerge, so <strong>be warned</strong>!</p>
+			<h3>How to Use:</h3>
+			<p>Each time you press "Let's Go", the code runs to load a new random image with a new random quote.</p><p>If "Shuffler" is set to on, the code will <strong>combine</strong> pieces of different quotations, to create a new quote. The "author" name is also picked randomly.</p><p>If "Incongruousness" is set to on, the code will attempt to pick an image that is <strong>the opposite</strong> of the keyword detected; if it can't find any, it will default to a randomly selected negative, anti-motivational word.</p><p>In case of any error in finding words, the code defaults to "cat".<img src="cat.png" style="height:2em"></p>
+			<p id="credits">The code uses the <a href="https://www.flickr.com/services/api/" target="_blank" rel="noopener">Flickr API</a>, the <a href="https://rednoise.org/rita/reference/" target="_blank" rel="noopener">RiTa library</a>, and <a href="https://www.datamuse.com/api/" target="_blank" rel="noopener">Datamuse</a>.</p>
 		</div>
 	</div>
 	<button class="button2" id="btn" onClick="booting();">Let's Go!</button>
@@ -72,6 +73,7 @@
 		}, 500);
 	}
 	var fontFamilies = ["Amatic SC", "Anton", "Architects Daughter", "Indie Flower", "Major Mono Display", "Syne Mono", "texturina"];
+	var negativityArray = ["darkness", "desolation", "despair", "negativity", "sad", "loss", "mourning", "unhappy", "bleak", "lonely"];
 	var quotations = [
   {
     "author": "Abraham Lincoln",

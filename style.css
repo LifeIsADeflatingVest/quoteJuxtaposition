@@ -9,7 +9,7 @@ body {
 h1 {
 	font-size:1.35em;
 }
-h2 {
+h2,h3 {
 	font-size:1.2em;
 	margin-top:2.5em;
 }
@@ -42,7 +42,13 @@ a:active {
 	display: table;
 	margin: 0 auto;
 	padding: 20px;
-	width:50%;
+	width:70%;
+}
+#credits {
+	font-size:0.8em;
+	display: table;
+	margin: 0 auto;
+	padding: 40px;
 }
 .output {
 	width:50%;
@@ -58,7 +64,7 @@ a:active {
 	position: absolute;
 	font-family: texturina;
 	font-size:2.2em;
-	bottom: 4em;
+	bottom: 3em;
 	left: 2em;
 	color: cornsilk;
 	padding-left: 5px;
@@ -98,23 +104,8 @@ a:active {
 		box-shadow: 10px 10px 30px 0px cornsilk;
 	}
 }
+
 @media only screen and (max-width: 1300px) {
-    body {
-		font-size:1em;
-	}
-	.text-block {
-		font-size: 2em;
-		bottom: 1.5em;
-		left: 0.9em;
-	}
-	#intro {
-		width:75%;
-	}
-	.output {
-		width:100%
-	}
-}
-@media only screen and (max-width: 1000px) {
     body {
 		font-size:1em;
 	}
@@ -124,7 +115,7 @@ a:active {
 		left: 0.9em;
 	}
 	#intro {
-		width:75%;
+		width:100%;
 	}
 	.output {
 		width:100%
